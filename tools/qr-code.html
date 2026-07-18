@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مولد رمز QR | أدواتي</title>
+  <meta name="description" content="حوّل أي رابط أو نص إلى رمز QR مجاناً وقم بتحميله كصورة PNG فوراً." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">🛠️ أدواتي</a>
+      <nav><a href="../index.html">الرئيسية</a></nav>
+    </div>
+  </header>
+
+  <div class="ad-slot container"><span class="ad-label">مساحة إعلانية</span></div>
+
+  <main class="container tool-page">
+    <a href="../index.html" class="back-link">← رجوع للأدوات</a>
+    <h1>📱 مولد رمز QR</h1>
+    <p class="desc">أدخل رابطاً أو نصاً وأنشئ رمز QR قابل للتحميل.</p>
+
+    <div class="panel">
+      <label for="qrtext">النص أو الرابط</label>
+      <input type="text" id="qrtext" placeholder="https://example.com" value="https://example.com" oninput="makeQR()" />
+      <div class="result" style="text-align:center">
+        <img id="qrimg" alt="رمز QR" style="max-width:100%;background:#fff;padding:10px;border-radius:8px" />
+      </div>
+      <div class="row" style="margin-top:16px">
+        <a class="btn" id="download" download="qrcode.png">تحميل الصورة</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="ad-slot container"><span class="ad-label">مساحة إعلانية</span></div>
+
+  <footer class="site-footer"><div class="container"><p>© <span id="year"></span> أدواتي</p></div></footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    function makeQR() {
+      var text = document.getElementById("qrtext").value || "https://example.com";
+      var url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + encodeURIComponent(text);
+      document.getElementById("qrimg").src = url;
+      document.getElementById("download").href = url;
+    }
+    makeQR();
+  </script>
+</body>
+</html>

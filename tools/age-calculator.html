@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حاسبة العمر | أدواتي</title>
+  <meta name="description" content="احسب عمرك بالتحديد بالسنوات والأشهر والأيام مجاناً بإدخال تاريخ ميلادك." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">🛠️ أدواتي</a>
+      <nav><a href="../index.html">الرئيسية</a></nav>
+    </div>
+  </header>
+
+  <div class="ad-slot container"><span class="ad-label">مساحة إعلانية</span></div>
+
+  <main class="container tool-page">
+    <a href="../index.html" class="back-link">← رجوع للأدوات</a>
+    <h1>🎂 حاسبة العمر</h1>
+    <p class="desc">أدخل تاريخ ميلادك لحساب عمرك بدقة.</p>
+
+    <div class="panel">
+      <label for="dob">تاريخ الميلاد</label>
+      <input type="date" id="dob" />
+      <button class="btn" onclick="calc()">احسب العمر</button>
+      <div class="result" id="output" style="display:none">
+        <div class="stats">
+          <div class="stat-box"><div class="num" id="years">0</div><div class="lbl">سنة</div></div>
+          <div class="stat-box"><div class="num" id="months">0</div><div class="lbl">شهر</div></div>
+          <div class="stat-box"><div class="num" id="days">0</div><div class="lbl">يوم</div></div>
+          <div class="stat-box"><div class="num" id="totalDays">0</div><div class="lbl">إجمالي الأيام</div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="ad-slot container"><span class="ad-label">مساحة إعلانية</span></div>
+
+  <footer class="site-footer"><div class="container"><p>© <span id="year"></span> أدواتي</p></div></footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    function calc() {
+      var dobVal = document.getElementById("dob").value;
+      if (!dobVal) { alert("اختر تاريخ الميلاد"); return; }
+      var dob = new Date(dobVal);
+      var now = new Date();
+      if (dob > now) { alert("التاريخ في المستقبل!"); return; }
+      var years = now.getFullYear() - dob.getFullYear();
+      var months = now.getMonth() - dob.getMonth();
+      var days = now.getDate() - dob.getDate();
+      if (days < 0) { months--; days += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); }
+      if (months < 0) { years--; months += 12; }
+      var totalDays = Math.floor((now - dob) / (1000 * 60 * 60 * 24));
+      document.getElementById("years").textContent = years;
+      document.getElementById("months").textContent = months;
+      document.getElementById("days").textContent = days;
+      document.getElementById("totalDays").textContent = totalDays;
+      document.getElementById("output").style.display = "block";
+    }
+  </script>
+</body>
+</html>
