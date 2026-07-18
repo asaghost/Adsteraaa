@@ -35,6 +35,11 @@ a{color:var(--g3);text-decoration:none}
 @keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.1)}66%{transform:translate(-30px,40px) scale(.95)}}
 .grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.04;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:3px 3px}
 
+/* ===== توهج الماوس (Cursor Glow) ===== */
+.cursor-glow{position:fixed;top:0;left:0;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:1;transform:translate(-50%,-50%);background:radial-gradient(circle, rgba(99,102,241,.18), rgba(236,72,153,.10) 40%, transparent 70%);opacity:0;transition:opacity .35s;mix-blend-mode:screen;will-change:transform}
+@media (hover:hover){.cursor-glow{opacity:1}}
+.spotlight{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(99,102,241,.10), transparent 60%);transition:background .12s linear}
+
 .container{max-width:1240px;margin:0 auto;padding:0 18px}
 .glass{background:var(--bg2);border:1px solid var(--border);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:var(--radius)}
 
@@ -138,15 +143,13 @@ canvas{max-width:100%;border:1px solid var(--border);border-radius:10px;backgrou
   .hero h1{font-size:1.9rem}
 }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-<script>if(window.pdfjsLib){pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";}</script>
+<!-- مكتبات CDN تُحمَّل عند الحاجة فقط (كسول) لتسريع فتح الصفحة -->
 </head>
 <body>
 <div class="bg"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
 <div class="grain"></div>
+<div class="spotlight" id="spotlight"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
 
 <header class="site-header">
   <div class="container header-inner">
@@ -178,13 +181,29 @@ canvas{max-width:100%;border:1px solid var(--border);border-radius:10px;backgrou
 <div class="ad-slot container"><span class="ad-label">مساحة إعلانية (أسفل)</span></div>
 
 <div class="container" id="about">
-  <div class="glass" style="padding:24px"><h2 style="font-size:1.5rem;margin-bottom:8px">من نحن</h2><p style="color:var(--muted)">موقع أدواتي يجمع عشرات الأدوات المجانية التي تعمل محلياً في متصفحك بأقصى سرعة وأمان، مع تصميم عصري لعام 2026. نضيف أدوات جديدة باستمرار.</p></div>
+  <div class="glass" style="padding:28px">
+    <h2 style="font-size:1.7rem;margin-bottom:10px">من نحن</h2>
+    <p style="color:var(--muted);margin-bottom:12px">أدواتي موقع عربي يجمع عشرات الأدوات المجانية التي تعمل مباشرة داخل متصفحك بأقصى سرعة وأمان، بتصميم عصري لعام 2026. نهدف إلى توفير أدوات بسيطة، سريعة، وبدون تسجيل لإنجاز مهامك اليومية.</p>
+    <p style="color:var(--muted);margin-bottom:12px">الأدوات مقسّمة لفئات: النصوص، الصور، PDF، المطورين، الحسابات، التاريخ والوقت، الألوان، والمزيد — وكلها تعمل محلياً على جهازك.</p>
+    <p style="color:var(--muted)">للتواصل والاقتراحات: <a href="mailto:khalidbmh1999@gmail.com">khalidbmh1999@gmail.com</a></p>
+  </div>
 </div>
 <div class="container" id="privacy" style="margin:22px auto">
-  <div class="glass" style="padding:24px"><h2 style="font-size:1.5rem;margin-bottom:8px">سياسة الخصوصية</h2><p style="color:var(--muted)">أدوات الموقع تعمل في متصفحك ولا نخزن مدخلاتك. قد يستخدم الموقع شبكة إعلانات Adsterra التي يمكن أن تستخدم ملفات تعريف الارتباط (cookies).</p></div>
+  <div class="glass" style="padding:28px">
+    <h2 style="font-size:1.7rem;margin-bottom:10px">سياسة الخصوصية</h2>
+    <p style="color:var(--muted);margin-bottom:12px"><b>آخر تحديث:</b> 2026</p>
+    <h3 style="margin:14px 0 6px;color:#cdd5f0">البيانات التي نجمعها</h3>
+    <p style="color:var(--muted);margin-bottom:12px">جميع أدوات الموقع تعمل محلياً في متصفحك (Client-side) ولا نقوم بإرسال أو تخزين النصوص والملفات التي تدخلها أو ترفعها إلى أي خادم.</p>
+    <h3 style="margin:14px 0 6px;color:#cdd5f0">ملفات تعريف الارتباط (Cookies)</h3>
+    <p style="color:var(--muted);margin-bottom:12px">يستخدم هذا الموقع شبكة إعلانات <b>Adsterra</b> لعرض الإعلانات. قد تستخدم Adsterra وشركاؤها ملفات تعريف الارتباط وتقنيات مشابهة لعرض إعلانات ملائمة وقياس الأداء. يمكنك تعطيل ملفات تعريف الارتباط من إعدادات متصفحك في أي وقت.</p>
+    <h3 style="margin:14px 0 6px;color:#cdd5f0">الإعلانات الخارجية</h3>
+    <p style="color:var(--muted);margin-bottom:12px">الإعلانات تُدار بالكامل من قِبل Adsterra، ونحن لا نتحكم في محتواها. يرجى مراجعة سياسة الخصوصية الخاصة بـ Adsterra لمزيد من التفاصيل.</p>
+    <h3 style="margin:14px 0 6px;color:#cdd5f0">التواصل</h3>
+    <p style="color:var(--muted)">أي استفسار: <a href="mailto:khalidbmh1999@gmail.com">khalidbmh1999@gmail.com</a></p>
+  </div>
 </div>
 
-<footer class="site-footer"><div class="container"><p>© <span id="year"></span> أدواتي — جميع الحقوق محفوظة · your-email@example.com</p></div></footer>
+<footer class="site-footer"><div class="container"><p>© <span id="year"></span> أدواتي — جميع الحقوق محفوظة</p><p><a href="mailto:khalidbmh1999@gmail.com">khalidbmh1999@gmail.com</a> · للتواصل والاقتراحات</p></div></footer>
 
 <div class="modal-bg" id="modalBg">
   <div class="modal" id="modal">
@@ -521,10 +540,39 @@ function renderGrid(){
 
 function filterTools(v){searchTerm=v; renderGrid();}
 
-function openTool(id){
+/* ===== تحميل مكتبات CDN عند الحاجة فقط (لتسريع الفتح) ===== */
+const LOADED={};
+const LIB_URLS={
+  pdflib:"https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js",
+  pdfjs:"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js",
+  jsbarcode:"https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.min.js",
+  jszip:"https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
+};
+function loadLib(name){
+  if(LOADED[name]) return LOADED[name];
+  const p=new Promise((res,rej)=>{
+    const s=document.createElement("script");
+    s.src=LIB_URLS[name];
+    s.onload=()=>{ if(name==="pdfjs"&&window.pdfjsLib){pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";} res(); };
+    s.onerror=()=>rej(new Error("فشل تحميل "+name));
+    document.head.appendChild(s);
+  });
+  LOADED[name]=p; return p;
+}
+const LIBS_FOR={
+  mergepdf:["pdflib"], splitpdf:["pdflib"], imgtopdf:["pdflib"], rotatepdf:["pdflib"], pdfinfo:["pdflib"],
+  pdftoimg:["pdfjs","jszip"], barcode:["jsbarcode"]
+};
+
+async function openTool(id){
   const t=TOOLS[id];
   T[id]=T[id]||{};
-  $("#modalTitle").textContent=t.icon+" "+t.title;
+  const need=LIBS_FOR[id]||[];
+  if(need.length){
+    $("#modalTitle").textContent="⏳ جارٍ التحميل...";
+    try{ await Promise.all(need.map(loadLib)); }catch(e){ toast("تعذر تحميل المكتبة"); }
+    if($("#modalTitle").textContent!==t.icon+" "+t.title) $("#modalTitle").textContent=t.icon+" "+t.title;
+  }
   $("#modalBody").innerHTML=t.html;
   if(t.init) t.init($("#modalBody"));
   $("#modalBg").classList.add("open");
@@ -534,6 +582,24 @@ function closeModal(){$("#modalBg").classList.remove("open"); document.body.styl
 $("#modalBg").addEventListener("click",e=>{if(e.target.id=="modalBg")closeModal();});
 document.addEventListener("keydown",e=>{if(e.key=="Escape")closeModal();});
 $("#year").textContent=new Date().getFullYear();
+
+/* ===== توهج الماوس ===== */
+const glow=$("#cursorGlow"), spot=$("#spotlight");
+let mx=innerWidth/2, my=innerHeight/2, gx=mx, gy=my;
+addEventListener("mousemove",e=>{
+  mx=e.clientX; my=e.clientY;
+  spot.style.setProperty("--mx",mx+"px");
+  spot.style.setProperty("--my",my+"px");
+}, {passive:true});
+addEventListener("mouseleave",()=>glow.style.opacity="0");
+addEventListener("mouseenter",()=>glow.style.opacity="");
+function glowLoop(){
+  gx+=(mx-gx)*0.18; gy+=(my-gy)*0.18;
+  glow.style.transform=`translate3d(${gx}px, ${gy}px, 0) translate(-50%, -50%)`;
+  requestAnimationFrame(glowLoop);
+}
+glowLoop();
+
 renderSidebar(); renderGrid();
 </script>
 </body>
