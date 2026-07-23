@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>نواة تولز (Nawaa Tools) — أكثر من 40 أداة مجانية أونلاين</title>
-<meta name="description" content="مجموعة ضخمة من الأدوات المجانية أونلاين: أدوات النصوص، تعديل الصور، أدوات PDF، أدوات المطورين، الحسابات، التاريخ والوقت، الألوان والمزيد. تعمل فوراً في متصفحك بدون تسجيل." />
-<meta name="keywords" content="أدوات مجانية, تعديل PDF, تعديل الصور, عداد كلمات, مولد كلمات مرور, محول صيغ, JSON, Base64, حاسبة BMI, مولد QR" />
-<link rel="canonical" href="https://USERNAME.github.io/REPO/" />
-<meta property="og:title" content="نواة تولز (Nawaa Tools) — أكثر من 40 أداة مجانية" />
-<meta property="og:description" content="أدوات أونلاين مجانية وسريعة تعمل مباشرة في متصفحك." />
+<title>Nawaa Tools — 40+ free online tools</title>
+<meta name="description" content="A huge set of free online tools: text tools, image editing, PDF tools, developer tools, calculators, date & time, colors and more. Runs instantly in your browser, no sign-up." />
+<meta name="keywords" content="free tools, edit PDF, edit images, word counter, password generator, format converter, JSON, Base64, BMI calculator, QR generator" />
+<link rel="canonical" href="https://asaghost.github.io/Adsteraaa/" />
+<meta property="og:title" content="Nawaa Tools — 40+ free tools" />
+<meta property="og:description" content="Free, fast online tools that run directly in your browser." />
 <meta property="og:type" content="website" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛠️</text></svg>">
+<meta property="og:image" content="https://asaghost.github.io/Adsteraaa/og.png">
+<meta property="og:url" content="https://asaghost.github.io/Adsteraaa/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -48,9 +52,11 @@ a{color:var(--g3);text-decoration:none}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
 .logo{font-size:1.5rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.5px}
 .site-header nav a{color:var(--muted);margin-inline-start:20px;font-weight:600;position:relative;transition:.25s}
-.site-header nav a::after{content:"";position:absolute;bottom:-6px;right:0;width:0;height:2px;background:var(--grad);transition:.25s}
+.site-header nav a::after{content:"";position:absolute;bottom:-6px;inset-inline-start:0;width:0;height:2px;background:var(--grad);transition:.25s}
 .site-header nav a:hover{color:var(--text)}
 .site-header nav a:hover::after{width:100%}
+.lang-btn{margin-inline-start:18px;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:8px 16px;border-radius:30px;font-weight:700;font-size:.9rem;cursor:pointer;transition:.25s;white-space:nowrap}
+.lang-btn:hover{background:var(--grad);color:#fff;border-color:transparent}
 
 /* ===== الهيرو ===== */
 .hero{text-align:center;padding:60px 0 30px;position:relative}
@@ -59,8 +65,8 @@ a{color:var(--g3);text-decoration:none}
 @keyframes shine{to{background-position:300% 0}}
 .hero p{color:var(--muted);max-width:660px;margin:14px auto 0;font-size:1.1rem}
 .search-wrap{margin:30px auto 0;max-width:560px;position:relative;animation:fadeUp .9s both .15s}
-.search-wrap svg{position:absolute;top:50%;right:18px;transform:translateY(-50%);width:20px;height:20px;fill:var(--muted)}
-#search{width:100%;padding:16px 50px 16px 18px;background:var(--bg2);border:1px solid var(--border);border-radius:40px;color:var(--text);font-size:1.05rem;backdrop-filter:blur(10px);transition:.3s}
+.search-wrap svg{position:absolute;top:50%;inset-inline-start:18px;transform:translateY(-50%);width:20px;height:20px;fill:var(--muted)}
+#search{width:100%;padding:16px 50px;background:var(--bg2);border:1px solid var(--border);border-radius:40px;color:var(--text);font-size:1.05rem;backdrop-filter:blur(10px);transition:.3s}
 #search:focus{outline:none;border-color:transparent;box-shadow:0 0 0 2px var(--g1),0 10px 40px rgba(99,102,241,.35)}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -73,9 +79,10 @@ a{color:var(--g3);text-decoration:none}
 /* ===== التخطيط ===== */
 .layout{display:grid;grid-template-columns:250px 1fr;gap:26px;margin:14px 0 40px;align-items:start}
 .sidebar{position:sticky;top:88px;padding:14px;display:flex;flex-direction:column;gap:6px}
-.cat-btn{display:flex;align-items:center;gap:10px;width:100%;text-align:right;background:transparent;border:none;color:var(--muted);padding:13px 14px;border-radius:13px;cursor:pointer;font-size:1rem;font-weight:600;position:relative;transition:.3s cubic-bezier(.2,.8,.2,1)}
+.cat-btn{display:flex;align-items:center;gap:10px;width:100%;text-align:start;background:transparent;border:none;color:var(--muted);padding:13px 14px;border-radius:13px;cursor:pointer;font-size:1rem;font-weight:600;position:relative;transition:.3s cubic-bezier(.2,.8,.2,1)}
 .cat-btn .emo{font-size:1.25rem;transition:transform .3s}
 .cat-btn:hover{color:var(--text);background:var(--bg3);transform:translateX(-4px)}
+[dir="ltr"] .cat-btn:hover{transform:translateX(4px)}
 .cat-btn:hover .emo{transform:scale(1.2) rotate(-6deg)}
 .cat-btn.active{color:#fff;background:var(--grad);box-shadow:0 8px 26px rgba(99,102,241,.45)}
 .cat-btn.active .emo{transform:scale(1.15)}
@@ -107,7 +114,8 @@ a{color:var(--g3);text-decoration:none}
 .close-btn:hover{background:var(--err);color:#fff;transform:rotate(90deg)}
 .panel{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
 label{display:block;margin-bottom:7px;font-weight:600;font-size:.95rem;color:#cdd5f0}
-input[type=text],input[type=number],input[type=date],input[type=file],textarea,select{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:1rem;margin-bottom:14px;transition:.25s;direction:rtl}
+input[type=text],input[type=number],input[type=date],input[type=file],textarea,select{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:1rem;margin-bottom:14px;transition:.25s;direction:ltr;text-align:left}
+[dir="rtl"] input[type=text],[dir="rtl"] input[type=number],[dir="rtl"] input[type=date],[dir="rtl"] input[type=file],[dir="rtl"] textarea,[dir="rtl"] select{direction:rtl;text-align:right}
 textarea{min-height:150px;resize:vertical}
 input:focus,textarea:focus,select:focus{outline:none;border-color:var(--g1);box-shadow:0 0 0 3px rgba(99,102,241,.25)}
 .btn{background:var(--grad);color:#fff;border:none;padding:12px 22px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;margin:4px 6px 4px 0;transition:transform .15s,box-shadow .3s;box-shadow:0 8px 22px rgba(99,102,241,.3)}
@@ -117,7 +125,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--g1);box-
 .btn-secondary:hover{background:rgba(255,255,255,.14)}
 .btn-sm{padding:8px 14px;font-size:.9rem;border-radius:10px}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.result{margin-top:16px;padding:15px;background:var(--bg);border:1px solid var(--border);border-radius:12px;word-break:break-word;white-space:pre-wrap;direction:rtl;text-align:right;font-size:.95rem}
+.result{margin-top:16px;padding:15px;background:var(--bg);border:1px solid var(--border);border-radius:12px;word-break:break-word;white-space:pre-wrap;direction:inherit;text-align:start;font-size:.95rem}
 .result.ltr{direction:ltr;text-align:left;font-family:"Space Grotesk",monospace}
 .ok{color:var(--ok)} .err{color:var(--err)}
 .stats{display:flex;gap:14px;flex-wrap:wrap}
@@ -153,8 +161,8 @@ canvas{max-width:100%;border:1px solid var(--border);border-radius:10px;backgrou
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="#top" class="logo">🛠️ نواة تولز</a>
-    <nav><a href="#top">الرئيسية</a><a href="#about">من نحن</a><a href="#privacy">خصوصية</a></nav>
+    <a href="#top" class="logo" data-noi18n>🛠️ Nawaa Tools</a>
+    <nav><a href="#top">الرئيسية</a><a href="#about">من نحن</a><a href="#privacy">خصوصية</a><button id="langBtn" class="lang-btn" onclick="toggleLang()">العربية</button></nav>
   </div>
 </header>
 
@@ -283,12 +291,12 @@ TOOLS.lorem={cat:"text",icon:"📰",title:"مولد نص Lorem Ipsum",desc:"نص
   <button class="btn" onclick="T.lorem.go()">توليد</button>
   <div class="result" id="o"></div></div>`,init(r){const w="lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo".split(" ");T.lorem.go=()=>{const n=+$("#n",r).value||3;let out="";for(let p=0;p<n;p++){let s="";for(let i=0;i<40;i++)s+=w[Math.floor(Math.random()*w.length)]+" ";out+=(p?"\n\n":"")+s.trim();}$("#o",r).textContent=out;};}};
 
-TOOLS.fancy={cat:"text",icon:"💅",title:"تنسيق النص الجمالي",desc:"خط عريض/مائل بالرموز",html:`
-  <div class="panel"><textarea id="t" placeholder="اكتب النص..."></textarea>
-  <div class="row"><button class="btn" onclick="T.fancy.go('bold')">عريض</button><button class="btn" onclick="T.fancy.go('italic')">مائل</button><button class="btn" onclick="T.fancy.go('bi')">عريض مائل</button><button class="btn btn-secondary" onclick="T.fancy.copy()">نسخ</button></div>
-  <div class="result ltr" id="o"></div></div>`,init(r){const base={bold:[0x1D400,0x1D41A,0x1D7CE],italic:[0x1D434,0x1D44E,0x1D7CE],bi:[0x1D468,0x1D482,0x1D7CE]};
-  T.fancy.copy=()=>{copyText($("#o",r).textContent).then(()=>toast("تم النسخ"));};
-  T.fancy.go=st=>{const [A,a,d]=base[st];let o="";for(const ch of $("#t",r).value){const c=ch.codePointAt(0);if(c>=65&&c<=90)o+=String.fromCodePoint(A+c-65);else if(c>=97&&c<=122)o+=String.fromCodePoint(a+c-97);else if(c>=48&&c<=57)o+=String.fromCodePoint(d+c-48);else o+=ch;}$("#o",r).textContent=o;};}};
+
+
+TOOLS.fancytext={cat:"text",icon:"✨",title:"تنسيق النص الجمالي",desc:"خط عريض/مائل بالرموز",html:`
+  <div class="panel"><textarea id="t" placeholder="اكتب النص..." oninput="T.fancytext.go()"></textarea>
+  <div class="result" id="o"></div></div>`,init(r){const M={"عادي":"","عريض":"𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭","مائل":"𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘝𝘞𝘟𝘠𝘡","عريض مائل":"𝘼𝘽𝘾𝘿𝙀𝙁𝙂𝙃𝙄𝙅ᴷ𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙅𝙑𝙒𝙓𝙔𝙃","مفرغ":"𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ","مفرغ صغير":"ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓧⓨⓩ","مربوط":"ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ","نقطي":"𝘼𝘽𝘾𝘿𝙀𝙁𝙂𝙃𝙄𝙅𝙆𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙅𝙑𝙒𝙓𝙔𝙃","قمري":"☽☾","مطلي":"̾","مشع":"҉"};
+  T.fancytext.go=()=>{const t=$("#t",r).value;let o="";for(const[k,v]of Object.entries(M)){if(k==="عادي")continue;let s="";for(const c of t){const i=c.charCodeAt(0);if(i>=65&&i<=90)s+=v[i-65]||c;else if(i>=97&&i<=122)s+=v[i-97]||c;else s+=c;}o+=k+": "+s+"\n";}$("#o",r).textContent=o;};T.fancytext.go();}};
 
 TOOLS.diff={cat:"text",icon:"🔍",title:"مقارنة نصين (Diff)",desc:"أوجد الفروق بين نصين",html:`
   <div class="panel"><label>النص الأول</label><textarea id="a" placeholder="الأول..."></textarea>
@@ -439,10 +447,10 @@ TOOLS.calc={cat:"calc",icon:"🧮",title:"آلة حاسبة",desc:"عمليات 
 /* ---------- التاريخ والوقت ---------- */
 TOOLS.countdown={cat:"datetime",icon:"⏳",title:"العد التنازلي",desc:"عدّاد لحدث",html:`
   <div class="panel"><label>اسم الحدث</label><input type="text" id="name" value="رأس السنة"><label>التاريخ والوقت</label><input type="datetime-local" id="dt">
-  <button class="btn" onclick="T.countdown.set()">بدء</button><div class="result" id="o"></div></div>`,init(r){let id;T.countdown.set=()=>{clearInterval(id);const t=new Date($("#dt",r).value).getTime();if(isNaN(t))return toast("اختر وقت");id=setInterval(()=>{const d=t-Date.now();if(d<=0){$("#o",r).textContent="انتهى الوقت! 🎉";clearInterval(id);return;}const days=Math.floor(d/864e5),h=Math.floor(d%864e5/36e5),m=Math.floor(d%36e5/6e4),s=Math.floor(d%6e4/1e3);$("#o",r).textContent=`${$("#name",r).value}: ${days}ي ${h}س ${m}د ${s}ث`;},1000);};}};
+  <button class="btn" onclick="T.countdown.set()">بدء</button><div class="result" id="o"></div></div>`,init(r){let id;T.countdown.set=()=>{clearInterval(id);const t=new Date($("#dt",r).value).getTime();if(isNaN(t))return toast("اختر وقت");id=setInterval(()=>{const d=t-Date.now();if(d<=0){$("#o",r).textContent="انتهى الوقت! 🎉";clearInterval(id);return;}const days=Math.floor(d/864e5),h=Math.floor(d%864e5/36e5),m=Math.floor(d%36e5/6e4),s=Math.floor(d%6e4/1e3);const u=LANG==='en'?['d','h','m','s']:['ي','س','د','ث'];$("#o",r).textContent=`${$("#name",r).value}: ${days}${u[0]} ${h}${u[1]} ${m}${u[2]} ${s}${u[3]}`;},1000);};}};
 
 TOOLS.worldclock={cat:"datetime",icon:"🕐",title:"ساعة العالم",desc:"أوقات مدن متعددة",html:`
-  <div class="panel"><div class="result ltr" id="o"></div></div>`,init(r){const zones=[["مكة","Asia/Riyadh"],["القاهرة","Africa/Cairo"],["لندن","Europe/London"],["نيويورك","America/New_York"],["طوكيو","Asia/Tokyo"]];function up(){$("#o",r).innerHTML=zones.map(z=>`${z[0]}: ${new Date().toLocaleTimeString("ar",{timeZone:z[1]})}`).join("<br>");}up();setInterval(up,1000);}};
+  <div class="panel"><div class="result ltr" id="o"></div></div>`,init(r){const zones=[["مكة","Asia/Riyadh"],["القاهرة","Africa/Cairo"],["لندن","Europe/London"],["نيويورك","America/New_York"],["طوكيو","Asia/Tokyo"]];function up(){$("#o",r).innerHTML=zones.map(z=>`${z[0]}: ${new Date().toLocaleTimeString(LANG==='en'?'en':'ar',{timeZone:z[1]})}`).join("<br>");}up();setInterval(up,1000);}};
 
 TOOLS.datediff={cat:"datetime",icon:"📅",title:"الفرق بين تاريخين",desc:"كم يوماً بينهما",html:`
   <div class="panel"><label>من</label><input type="date" id="a"><label>إلى</label><input type="date" id="b">
@@ -493,11 +501,13 @@ TOOLS.randnum={cat:"misc",icon:"🎲",title:"مولد أرقام عشوائية"
   <div class="row"><button class="btn" onclick="T.randnum.go()">توليد</button><button class="btn btn-secondary" onclick="T.randnum.copy()">نسخ</button></div>
   <div class="result ltr" id="o"></div></div>`,init(r){T.randnum.copy=()=>{copyText($("#o",r).textContent).then(()=>toast("تم النسخ"));};T.randnum.go=()=>{const a=+$("#min",r).value,b=+$("#max",r).value,n=+$("#cnt",r).value||1;let o=[];for(let i=0;i<n;i++)o.push(Math.floor(Math.random()*(b-a+1))+a);$("#o",r).textContent=o.join(", ");};}};
 
+
+
 TOOLS.username={cat:"misc",icon:"👤",title:"مولد أسماء مستخدمين",desc:"اقتراحات اسم مستخدم",html:`
-  <div class="panel"><input type="text" id="base" placeholder="كلمة أساسية (اختياري)">
-  <label>العدد</label><input type="number" id="n" value="10" min="1" max="50">
+  <div class="panel"><label>كلمة أساسية</label><input type="text" id="t" placeholder="مثال: khalid">
+  <div class="row"><label style="margin:0">العدد</label><input type="number" id="n" value="10" min="1" max="50" style="width:80px"></div>
   <div class="row"><button class="btn" onclick="T.username.go()">توليد</button><button class="btn btn-secondary" onclick="T.username.copy()">نسخ</button></div>
-  <div class="result ltr" id="o"></div></div>`,init(r){const adj=["cool","pro","super","mega","ultra","smart","fast","dark","lucky","tech","neo","x"];const suf=["123","2024","x","_","_official","007","_99","_hub","_world","_pro"];T.username.copy=()=>{copyText($("#o",r).textContent).then(()=>toast("تم النسخ"));};T.username.go=()=>{const base=$("#base",r).value||"user";const n=+$("#n",r).value||10;let o=[];for(let i=0;i<n;i++){o.push(base+adj[Math.floor(Math.random()*adj.length)]+suf[Math.floor(Math.random()*suf.length)]+Math.floor(Math.random()*99));}$("#o",r).textContent=o.join("\n");};}};
+  <div class="result ltr" id="o"></div></div>`,init(r){T.username.copy=()=>{copyText($("#o",r).textContent).then(()=>toast("تم النسخ"));};T.username.go=()=>{const base=($("#t",r).value||"user").toLowerCase().replace(/[^a-z0-9]/g,"");const n=+$("#n",r).value||10;const prefixes=["the","pro","real","cool","super","mega","x","i_am","its"];const suffixes=["007","123","99","x","_","__","_x_","42","00","1","2","3"];const extras=["_",".","__","-"];let out=[];const used=new Set();for(let i=0;i<n*3&&out.length<n;i++){let u="";const r1=Math.random();if(r1<0.25)u=prefixes[Math.floor(Math.random()*prefixes.length)]+base;else if(r1<0.5)u=base+suffixes[Math.floor(Math.random()*suffixes.length)];else if(r1<0.75)u=base+extras[Math.floor(Math.random()*extras.length)]+Math.floor(Math.random()*999);else u=base.split("").reverse().join("")+Math.floor(Math.random()*99);if(!used.has(u)){used.add(u);out.push(u);}}$("#o",r).textContent=out.join("\n");};T.username.go();}};
 
 /* ===================== عرض الواجهة ===================== */
 let activeCat=CATS[0].id;
@@ -512,6 +522,7 @@ function renderSidebar(){
     b.onclick=()=>{activeCat=c.id; searchTerm=""; $("#search").value=""; renderSidebar(); renderGrid();};
     sb.appendChild(b);
   });
+  localize(sb);
 }
 
 function renderGrid(){
@@ -535,6 +546,7 @@ function renderGrid(){
     grid.appendChild(d);
     setTimeout(()=>d.classList.add("in"),i*45);
   });
+  localize(grid);
   if(window.innerWidth<860) $("#grid").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
@@ -575,6 +587,7 @@ async function openTool(id){
   }
   $("#modalBody").innerHTML=t.html;
   if(t.init) t.init($("#modalBody"));
+  localize($("#modalBody"));
   $("#modalBg").classList.add("open");
   document.body.style.overflow="hidden";
 }
@@ -600,7 +613,69 @@ function glowLoop(){
 }
 glowLoop();
 
-renderSidebar(); renderGrid();
+/* ===================== الترجمة (EN ⇄ AR) ===================== */
+let LANG="en";
+const EN={
+"🛠️ نواة تولز":"🛠️ Nawaa Tools",
+"الرئيسية":"Home","من نحن":"About","خصوصية":"Privacy",
+"مساحة إعلانية (أعلى)":"Ad Space (Top)","مساحة إعلانية (أسفل)":"Ad Space (Bottom)",
+"✨ أكثر من 40 أداة مجانية · بدون تسجيل":"✨ 40+ free tools · no sign-up",
+"أدواتك كلها في مكان واحد":"All your tools in one place",
+"مجموعة ضخمة من الأدوات الذكية تعمل فوراً في متصفحك — نصوص، صور، PDF، حسابات، والمزيد.":"A huge set of smart tools that run instantly in your browser — text, images, PDF, calculators, and more.",
+"ابحث عن أداة (مثال: PDF، كلمة مرور، QR)...":"Search a tool (e.g. PDF, password, QR)...",
+"نواة تولز موقع عربي يجمع عشرات الأدوات المجانية التي تعمل مباشرة داخل متصفحك بأقصى سرعة وأمان، بتصميم عصري لعام 2026. نهدف إلى توفير أدوات بسيطة، سريعة، وبدون تسجيل لإنجاز مهامك اليومية.":"Nawaa Tools is an Arabic-friendly site that brings together dozens of free tools running directly in your browser at maximum speed and security, with a modern 2026 design. We aim to provide simple, fast, sign-up-free tools for your daily tasks.",
+"الأدوات مقسّمة لفئات: النصوص، الصور، PDF، المطورين، الحسابات، التاريخ والوقت، الألوان، والمزيد — وكلها تعمل محلياً على جهازك.":"Tools are split into categories: text, images, PDF, developers, calculators, date & time, colors, and more — all running locally on your device.",
+"للتواصل والاقتراحات: ":"Contact & suggestions: ",
+"سياسة الخصوصية":"Privacy Policy","آخر تحديث:":"Last update:","البيانات التي نجمعها":"Data we collect",
+"جميع أدوات الموقع تعمل محلياً في متصفحك (Client-side) ولا نقوم بإرسال أو تخزين النصوص والملفات التي تدخلها أو ترفعها إلى أي خادم.":"All site tools run locally in your browser (client-side). We do not send or store the texts and files you enter or upload to any server.",
+"ملفات تعريف الارتباط (Cookies)":"Cookies",
+"يستخدم هذا الموقع شبكة إعلانات Adsterra لعرض الإعلانات. قد تستخدم Adsterra وشركاؤها ملفات تعريف الارتباط وتقنيات مشابهة لعرض إعلانات ملائمة وقياس الأداء. يمكنك تعطيل ملفات تعريف الارتباط من إعدادات متصفحك في أي وقت.":"This site uses the Adsterra ad network to display ads. Adsterra and its partners may use cookies and similar technologies to show relevant ads and measure performance. You can disable cookies anytime from your browser settings.",
+"الإعلانات الخارجية":"Third-party ads",
+"الإعلانات تُدار بالكامل من قِبل Adsterra، ونحن لا نتحكم في محتواها. يرجى مراجعة سياسة الخصوصية الخاصة بـ Adsterra لمزيد من التفاصيل.":"Ads are fully managed by Adsterra, and we do not control their content. Please review Adsterra's privacy policy for more details.",
+"التواصل":"Contact","أي استفسار: ":"Any inquiry: ",
+"نواة تولز — جميع الحقوق محفوظة":"Nawaa Tools — All rights reserved",
+"· للتواصل والاقتراحات":"· contact & suggestions",
+"أدوات النصوص":"Text Tools","أدوات الصور":"Image Tools","أدوات PDF":"PDF Tools","أدوات المطورين":"Developer Tools","الحسابات":"Calculators","التاريخ والوقت":"Date & Time","الألوان":"Colors","متنوع":"Misc",
+"🔍 نتائج البحث ":"🔍 Search results ",
+"عداد الكلمات والحروف":"Word & Character Counter","محول حالة النص":"Text Case Converter","عكس النص":"Reverse Text","إزالة الأسطر المكررة":"Remove Duplicate Lines","فرز الأسطر":"Sort Lines","مولد نص Lorem Ipsum":"Lorem Ipsum Generator","تنسيق النص الجمالي":"Fancy Text Styler","مقارنة نصين (Diff)":"Text Diff Tool","تغيير حجم الصورة":"Image Resizer","ضغط الصورة":"Image Compressor","تحويل صيغة الصورة":"Image Format Converter","إضافة علامة مائية":"Add Watermark","تدوير/قلب الصورة":"Rotate / Flip Image","دمج ملفات PDF":"Merge PDF Files","تقسيم PDF (نطاق صفحات)":"Split PDF (Page Range)","صور إلى PDF":"Images to PDF","تدوير صفحات PDF":"Rotate PDF Pages","معلومات ملف PDF":"PDF Info","PDF إلى صور":"PDF to Images","تنسيق JSON":"JSON Formatter","Base64 (تشفير/فك)":"Base64 (Encode/Decode)","ترميز URL":"URL Encoder/Decoder","مولد UUID":"UUID Generator","محول الطابع الزمني":"Timestamp Converter","هاش SHA-256":"SHA-256 Hash","HTML Escape/Unescape":"HTML Escape/Unescape","حاسبة العمر":"Age Calculator","محول الوحدات":"Unit Converter","حاسبة BMI":"BMI Calculator","حاسبة النسبة":"Percentage Calculator","حاسبة القرض":"Loan Calculator","آلة حاسبة":"Calculator","العد التنازلي":"Countdown Timer","ساعة العالم":"World Clock","الفرق بين تاريخين":"Date Difference","محول الألوان":"Color Converter","منتقي الألوان":"Color Picker","مولد رمز QR":"QR Code Generator","مولد باركود":"Barcode Generator","مولد كلمات المرور":"Password Generator","فاحص قوة كلمة المرور":"Password Strength Checker","مولد أرقام عشوائية":"Random Number Generator","مولد أسماء مستخدمين":"Username Generator",
+"تنسيق النص الجمالي":"Fancy Text Styler",
+"احسب الكلمات والحروف والجمل فوراً":"Count words, characters & sentences instantly","كبيرة/صغيرة/عنوان/جملة":"Uppercase / lowercase / title / sentence","اعكس النص أو الأسطر":"Reverse text or lines","احذف الأسطر والتكرار":"Delete lines and duplicates","رتّب الأسطر أبجدياً":"Sort lines alphabetically","نص تجريبي للتصميم":"Placeholder text for design","خط عريض/مائل بالرموز":"Bold / italic styled fonts","أوجد الفروق بين نصين":"Find differences between two texts","تكبير/تصغير بأبعاد مخصصة":"Scale with custom dimensions","قلل حجم الصورة":"Reduce image file size","JPG/PNG/WEBP":"JPG / PNG / WEBP","اكتب نصاً على الصورة":"Write text over your image","تدوير 90° أو قلب":"Rotate 90° or flip","اجمع عدة ملفات في واحد":"Combine multiple files into one","استخرج صفحات محددة":"Extract specific pages","حوّل صورك إلى ملف PDF":"Turn your images into a PDF","تدوير كل الصفحات 90°":"Rotate all pages 90°","عدد الصفحات وحجم الملف":"Page count and file size","استخرج صفحات PDF كصور":"Extract PDF pages as images","جمّل أو صغّر JSON":"Beautify or minify JSON","ترميز وفك Base64":"Encode and decode Base64","Encode/Decode URLs":"Encode/Decode URLs","ولّد معرّفات فريدة":"Generate unique IDs","Unix ↔ تاريخ":"Unix ↔ date","تجزئة نصية آمنة":"Secure text hashing","تحويل رموز HTML":"Convert HTML entities","العمر بالسنوات والأشهر والأيام":"Age in years, months & days","طول/وزن/حرارة":"Length / weight / temperature","كتلة الجسم":"Body mass index","كم % من عدد":"What % of a number","القسط الشهري":"Monthly payment","عمليات أساسية":"Basic operations","عدّاد لحدث":"Timer for an event","أوقات مدن متعددة":"Times in multiple cities","كم يوماً بينهما":"How many days between","HEX/RGB/HSL":"HEX/RGB/HSL","اختر لوناً وانسخه":"Pick a color and copy it","نص/رابط إلى QR":"Text / link to QR","Code128 barcode":"Code128 barcode","كلمات قوية":"Strong passwords","قيّم أمان كلمتك":"Evaluate your password security","أرقام/قوائم":"Numbers / lists","اقتراحات اسم مستخدم":"Username suggestions",
+"كلمة أساسية":"Base word","مثال: khalid":"e.g. khalid",
+"اكتب أو الصق النص...":"Type or paste text...","كلمة":"Words","حرف":"Chars","بدون مسافات":"No spaces","جملة":"Sentences","النص...":"Text...","نسخ":"Copy","عكس الأحرف":"Reverse chars","عكس الأسطر":"Reverse lines","كل سطر...":"Each line...","إزالة المكرر":"Remove dupes","إزالة الفارغ":"Remove empty","تصاعدي":"Ascending","تنازلي":"Descending","عدد الفقرات":"Paragraphs","توليد":"Generate","اكتب النص...":"Type text...","عريض":"Bold","مائل":"Italic","عريض مائل":"Bold Italic","النص الأول":"First text","النص الثاني":"Second text","الأول...":"First...","الثاني...":"Second...","مقارنة":"Compare","العرض":"Width","الارتفاع":"Height","النوع":"Format","تطبيق وتحميل":"Apply & Download","الجودة: ":"Quality: ","ضغط وتحميل":"Compress & Download","الحجم الأصلي: ":"Original size: ","إلى الصيغة":"To format","تحويل وتحميل":"Convert & Download","النص":"Text","الحجم":"Size","الشفافية":"Opacity","نواة تولز":"Nawaa Tools","إضافة وتحميل":"Add & Download","تدوير ←":"Rotate ←","تدوير →":"Rotate →","قلب أفقي":"Flip H","قلب رأسي":"Flip V","تحميل":"Download","دمج وتحميل":"Merge & Download","تم دمج ":"Merged ","من صفحة — إلى صفحة (اترك فارغاً للكل)":"From page — to page (leave empty for all)","من":"From","إلى":"To","استخراج وتحميل":"Extract & Download","تم استخراج ":"Extracted ","إنشاء PDF":"Create PDF","تم تحويل ":"Converted ","تم التدوير":"Rotated","تحليل":"Analyze","عدد الصفحات: ":"Pages: ","حجم الملف: ":"File size: ","تحويل":"Convert","⬇ صفحة ":"⬇ Page ","⬇ تحميل الكل (ZIP)":"⬇ Download all (ZIP)","تنسيق":"Format","تصغير":"Minify","تشفير":"Encode","فك":"Decode","العدد":"Count","الطابع الزمني (ثوانٍ)":"Timestamp (seconds)","أو التاريخ":"Or date","إلى تاريخ":"To date","إلى طابع":"To timestamp","تجزئة":"Hash","تاريخ الميلاد":"Birth date","احسب":"Calculate","سنة":"Years","شهر":"Months","يوم":"Days","يوم كلي":"Total days","الطول":"Length","الوزن":"Weight","الحرارة":"Temperature","متر":"Meter","كيلومتر":"Kilometer","سنتيمتر":"Centimeter","مليمتر":"Millimeter","ميل":"Mile","قدم":"Foot","إنش":"Inch","كيلوجرام":"Kilogram","جرام":"Gram","طن":"Ton","رطل":"Pound","أونصة":"Ounce","مئوية":"Celsius","فهرنهايت":"Fahrenheit","كلفن":"Kelvin","الوزن (كجم)":"Weight (kg)","الطول (سم)":"Height (cm)","نقص وزن":"Underweight","طبيعي":"Normal","زيادة":"Overweight","سمنة":"Obese","القيمة":"Value","من العدد":"Of number"," هو ":" is ","% من ":"% of ","المبلغ":"Amount","الفائدة السنوية %":"Annual interest %","المدة (سنة)":"Duration (years)","القسط الشهري: ":"Monthly: ","الإجمالي: ":"Total: ","خطأ":"Error","اسم الحدث":"Event name","التاريخ والوقت":"Date & time","بدء":"Start","انتهى الوقت! 🎉":"Time's up! 🎉","رأس السنة":"New Year","مكة":"Mecca","القاهرة":"Cairo","لندن":"London","نيويورك":"New York","طوكيو":"Tokyo","الفرق: ":"Difference: "," يوم (":" days ("," سنة تقريباً)":" years approx.)","كلمة المرور":"Password","القوة: ":"Strength: ","ضعيفة جداً":"Very weak","ضعيفة":"Weak","متوسطة":"Medium","جيدة":"Good","قوية":"Strong","قوية جداً":"Very strong"," حرف":" chars","كلمة أساسية (اختياري)":"Base word (optional)",
+"تم النسخ":"Copied","اختر صورة":"Choose an image","اختر ملف":"Choose a file","اختر ملفين على الأقل":"Choose at least two files","تعذر تحميل المكتبة":"Failed to load library","أدخل طابع":"Enter a timestamp","اختر تاريخ":"Choose a date","أدخل القيم":"Enter values","اختر التواريخ":"Choose dates","قيمة غير صالحة":"Invalid value","اختر نوعاً":"Select a type","⏳ جارٍ التحميل...":"⏳ Loading...","فشل تحميل ":"Failed to load "
+};
+const AR={}; for(const k in EN) AR[EN[k]]=k;
+function trText(t){ if(t==null) return t; const keys=Object.keys(EN).sort((a,b)=>b.length-a.length); for(const a of keys){ if(a&&t.indexOf(a)>=0) t=t.split(a).join(EN[a]); } return t; }
+function trBack(t){ if(t==null) return t; const keys=Object.keys(AR).sort((a,b)=>b.length-a.length); for(const a of keys){ if(a&&t.indexOf(a)>=0) t=t.split(a).join(AR[a]); } return t; }
+function localize(root){
+  const fn=LANG==="en"?trText:trBack;
+  (function walk(n){
+    if(n.nodeType===3){ if(n.textContent.trim()) n.textContent=fn(n.textContent); return; }
+    if(n.nodeType===1){
+      if(n.hasAttribute("data-noi18n")) return;
+      if(n.tagName==="SCRIPT"||n.tagName==="STYLE") return;
+      for(const at of ["placeholder","value","title"]){
+        if(!n.hasAttribute(at)) continue;
+        if(at==="value" && (n.tagName==="OPTION"||n.tagName==="SELECT")) continue;
+        const v=n.getAttribute(at); const nv=fn(v); if(nv!==v) n.setAttribute(at,nv);
+      }
+    }
+    for(const c of n.childNodes) walk(c);
+  })(root);
+}
+function applyLang(){
+  document.documentElement.lang=LANG;
+  document.documentElement.dir=(LANG==="ar"?"rtl":"ltr");
+  const lb=$("#langBtn"); if(lb) lb.textContent=(LANG==="en"?"العربية":"EN");
+  localize(document);
+}
+function toggleLang(){ LANG=(LANG==="en"?"ar":"en"); applyLang(); }
+
+let _locTimer=null;
+const _locObs=new MutationObserver(()=>{ if(_locTimer) return; _locTimer=setTimeout(()=>{ _locTimer=null; localize(document); },25); });
+_locObs.observe(document.body,{subtree:true,childList:true,characterData:true});
+
+renderSidebar(); renderGrid(); applyLang();
 </script>
 </body>
 </html>
